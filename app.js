@@ -4,6 +4,12 @@ const db = require("./config/keys").mongoURI;
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
+const io = require("socket.io-client");
+let socket = io.connect("http://localhost:3000");
+
+socket.on("welcome", (data) => {
+  console.log("Received: " + data);
+});
 
 const users = require("./routes/api/users");
 
