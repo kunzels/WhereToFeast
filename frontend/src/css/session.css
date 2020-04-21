@@ -3,17 +3,14 @@
     height: fit-content;
     margin: auto;
     background-color: white;
-    /* margin-top: 50px;
-    margin-bottom: 40px; */
     border-radius: 3px;
     padding: 16px 16px;
     border: 1px solid black;
-    /* top: 500px; */
     opacity: 85%;
 }
 
 .user-input{
-    border: 1p solid grey;
+    border: 1px solid grey;
     margin: 5px 5px 5px 5px;
     box-sizing: border-box;
     font-size: 1em;
@@ -46,7 +43,6 @@
     margin-bottom: 8px;
     font-weight: 700;
     text-transform: uppercase;
-    /* font-family: 'Arvo', serif; */
 }
 
 .navbar-title:hover{

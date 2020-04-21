@@ -1,5 +1,5 @@
 import React from 'react';
-import "./splash.css"
+import "../../css/splash.css"
 import NavBarContainer from "../nav/navbar_container"
 // import { Link, Redirect } from 'react-router-dom'
 
