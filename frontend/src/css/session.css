@@ -2,11 +2,12 @@
     width: 400px;
     height: fit-content;
     margin: auto;
+    align-content: center;
     background-color: white;
     border-radius: 3px;
     padding: 16px 16px;
     border: 1px solid black;
-    opacity: 85%;
+    opacity: .85;
 }
 
 .user-input{
