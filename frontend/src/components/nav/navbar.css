@@ -1,8 +1,8 @@
-.NavBar {
+/* .NavBar {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-}
+} */
 
 .NavBar button {
     height: 20px;
@@ -19,3 +19,51 @@
     display: flex;
     justify-content: space-between;
 }
+
+.navbar{
+    display: flex;
+    background-color: #ffcc00;
+    justify-content: space-between;
+    /* flex-direction: row; */
+    color: white;
+    font-size: large; 
+    font-variant: small-caps;
+    font-family: chalkduster, fantasy;   
+}
+
+.navbar-links{
+    display: flex;
+    flex-direction: column-reverse;
+    /* justify-content: flex-end; */
+    
+}
+
+ .session-links{
+  position: relative;
+  text-align: right;
+  padding: 5px 15px;
+  background-color: transparent;
+  border: 2px solid white;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 400;
+  outline: none;
+  text-transform: uppercase;
+  bottom: 10px;
+} 
+
+.session-links:hover{
+    background-color: white;
+    opacity: 75%;
+    color: black;
+}
+
+.navbar-title{
+    align-self: center;
+    color: red;
+    font-size: 50px;
+    text-decoration: none;
+    /* margin-right: 190px; */
+}
+

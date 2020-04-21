@@ -1,0 +1,54 @@
+.session-form-container{
+    width: 400px;
+    height: fit-content;
+    margin: auto;
+    background-color: white;
+    /* margin-top: 50px;
+    margin-bottom: 40px; */
+    border-radius: 3px;
+    padding: 16px 16px;
+    border: 1px solid black;
+    /* top: 500px; */
+    opacity: 85%;
+}
+
+.user-input{
+    border: 1p solid grey;
+    margin: 5px 5px 5px 5px;
+    box-sizing: border-box;
+    font-size: 1em;
+    width: 90%;
+}
+
+.login-form{
+    background-image: url("login_pic.jpg");
+    height: 900px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+.signup-form-pic{
+    background-image: url("signup_pic.jpg");
+    height: 900px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.session-title {
+    color: #3E4040;
+    font-size: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 8px;
+    font-weight: 700;
+    text-transform: uppercase;
+    /* font-family: 'Arvo', serif; */
+}
+
+.navbar-title:hover{
+    color: orange;
+}
