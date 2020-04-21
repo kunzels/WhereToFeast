@@ -9,7 +9,7 @@ const path = require('path');
 
 const users = require("./routes/api/users");
 
-app.get("/", (req, res) => res.send("Hello World!!"));
+// app.get("/", (req, res) => res.send("Hello World!!"));
 
 app.use(passport.initialize());
 require("./config/passport")(passport);
