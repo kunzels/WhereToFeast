@@ -1,7 +1,7 @@
 {
-  "name": "twitter",
+  "name": "wheretofeast",
   "version": "1.0.0",
-  "description": "twitter example",
+  "description": "Get food",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
