@@ -47,12 +47,13 @@ class Randomizer extends React.Component{
                     <ul>{optionLis}</ul>
                     <button type="submit" onClick={this.handleSubmitOptions}> Pick a Random Choice</button>
                     <br/> 
-                    <h3> Final Choice: {this.state.finalChoice} </h3> 
+                    <h3> Final Choice: {this.state.finalChoice} </h3>
+                     
                 </form>
             </div>
         )
     }
-    
+    //test 
 }
 
 export default Randomizer; 
