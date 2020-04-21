@@ -29,7 +29,7 @@ if (process.env.NODE_ENV === 'production') {
   })
 }
 
-let socket = io.connect("http://localhost:8080");
+let socket = io.connect("http://localhost:8000");
 
 socket.on("welcome", (data) => {
   console.log("Received: " + data);
