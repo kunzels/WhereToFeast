@@ -53,11 +53,14 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="login-form"> 
+      <div className="session-form-container">
+        <h4 className="session-title"> Log In</h4>
         <form onSubmit={this.handleSubmit}>
           <div>
             <br />
             <input
+              className="user-input"
               type="text"
               value={this.state.email}
               onChange={this.update("email")}
@@ -65,6 +68,7 @@ class LoginForm extends React.Component {
             />
             <br />
             <input
+              className="user-input"
               type="password"
               value={this.state.password}
               onChange={this.update("password")}
@@ -76,6 +80,7 @@ class LoginForm extends React.Component {
           </div>
         </form>
       </div>
+      </div> 
     );
   }
 }

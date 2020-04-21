@@ -1,0 +1,57 @@
+.splash-header{
+    background-image: url("splash_header.jpg");
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.splash-confused{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* margin-top: 30px; */
+    width: auto;
+    border-bottom: 1px solid black;
+}
+
+.confused-text{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    /* border: 4px groove red; */
+    border-radius: 15px;
+    font-size: large; 
+    font-variant: small-caps;
+    font-family: chalkduster, fantasy;
+    
+}
+
+.wtf{
+    /* text-decoration: underline; */
+    color: red;
+    font-style: italic;
+    font-size: 40px;
+}
+.confused-groups{
+    background-image: url("confused.jpg");
+    height: 350px;
+    width: 700px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.celebrate-groups{
+    background-image: url("celebrate.jpg");
+    height: 350px;
+    width: 700px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+*{
+    font-family: chalkduster, fantasy;
+}
+
