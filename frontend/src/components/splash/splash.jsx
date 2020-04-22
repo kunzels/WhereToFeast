@@ -32,7 +32,7 @@ class Splash extends React.Component {
 
                 </div>
 
-                <div className="splash-first">
+                {/* <div className="splash-first">
 
                     <div className="splash-second-first"></div>
 
@@ -43,7 +43,7 @@ class Splash extends React.Component {
 
                     <div className="splash-second-end"> test 3 </div>
 
-                </div>
+                </div> */}
 
             </div>
         )
