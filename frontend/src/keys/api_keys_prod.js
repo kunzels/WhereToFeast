@@ -1,3 +1,3 @@
 module.exports = {
-    mapApi: process.env.MAP_API
+    mapApi: process.env.REACT_APP_MAP_API
 }
