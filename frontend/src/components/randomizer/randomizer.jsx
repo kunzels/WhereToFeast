@@ -64,6 +64,9 @@ class Randomizer extends React.Component{
                     <h3> Final Choice: {this.state.finalChoice} </h3>
                      
                 </form>
+
+                {/* <Map choice={this.state.finalChoice} /> */}
+
             </div>
         )
     }
