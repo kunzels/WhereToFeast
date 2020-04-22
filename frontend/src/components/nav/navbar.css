@@ -64,6 +64,11 @@
     color: red;
     font-size: 50px;
     text-decoration: none;
-    /* margin-right: 190px; */
+    margin-left: 225px;
 }
 
+.logout-btn{
+    padding: 10px 10px 10px 10px;
+    bottom: 12px;
+    
+}

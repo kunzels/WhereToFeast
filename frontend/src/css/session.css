@@ -2,18 +2,18 @@
     width: 400px;
     height: fit-content;
     margin: auto;
+    margin-top: 150px;
+    align-content: center;
+    vertical-align: center;
     background-color: white;
-    /* margin-top: 50px;
-    margin-bottom: 40px; */
     border-radius: 3px;
     padding: 16px 16px;
     border: 1px solid black;
-    /* top: 500px; */
-    opacity: 85%;
+    opacity: .85;
 }
 
 .user-input{
-    border: 1p solid grey;
+    border: 1px solid grey;
     margin: 5px 5px 5px 5px;
     box-sizing: border-box;
     font-size: 1em;
@@ -21,8 +21,9 @@
 }
 
 .login-form{
+    display: flex;
     background-image: url("login_pic.jpg");
-    height: 900px;
+    height: 865px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -30,8 +31,9 @@
 }
 
 .signup-form-pic{
+    display: flex;
     background-image: url("signup_pic.jpg");
-    height: 900px;
+    height: 865px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -46,7 +48,6 @@
     margin-bottom: 8px;
     font-weight: 700;
     text-transform: uppercase;
-    /* font-family: 'Arvo', serif; */
 }
 
 .navbar-title:hover{
