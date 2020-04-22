@@ -13,7 +13,7 @@ class Home extends React.Component{
     }
 
     sendSocketIO() {
-        socket.emit('example_message', 'demo');
+        socket.emit('example_message', 'My Choice');
     }
 
     handleClick(){
@@ -23,6 +23,7 @@ class Home extends React.Component{
     render(){
         return (
           <div>
+            
             <button onClick={this.sendSocketIO}>Send Socket.io</button>
           </div>
         );

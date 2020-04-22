@@ -4,7 +4,7 @@ const db = require("./config/keys").mongoURI;
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
-const io = require("socket.io-client");
+// const io = require("socket.io-client");
 const path = require('path');
 
 const users = require("./routes/api/users");
@@ -29,11 +29,26 @@ if (process.env.NODE_ENV === 'production') {
   })
 }
 
-let socket = io.connect("http://localhost:8000");
+const connections = [];
 
-socket.on("welcome", (data) => {
-  console.log("Received: " + data);
+const http = require("http").Server(app);
+const io = require("socket.io")(http);
+io.on("connection", function (socket) {
+  console.log("a user connected");
+
+  connections.push(socket);
+  console.log("Connected: %s sockets connected", connections.length);
+
+  socket.on("disconnect", function () {
+    connections.pop();
+    console.log("User Disconnected");
+  });
+
+  socket.on("send message", function (msg) {
+    io.sockets.emit("message: ", {message: msg});
+  });
 });
+io.listen(8000);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server is running on port ${port}`));
