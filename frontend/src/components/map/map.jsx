@@ -4,8 +4,18 @@ import keys from '../../keys/api_keys'
 
 
 class Map extends React.Component {
-
+    constructor(props){
+        super(props);
+        this.initMap = this.initMap.bind(this);
+        
+        
+    }
+    
     componentDidMount() {
+        this.renderMap();
+    }
+
+    componentDidUpdate(){
         this.renderMap();
     }
 
@@ -15,7 +25,7 @@ class Map extends React.Component {
     }
 
     initMap() {
-   
+        
         let pos;
         let map;
         let bounds;
@@ -23,7 +33,9 @@ class Map extends React.Component {
         let currentInfoWindow;
         let service;
         let infoPane;
-        
+        const that = this;
+        var choice = that.props.choice; 
+        // debugger 
         // Initialize variables
         bounds = new window.google.maps.LatLngBounds();
         infoWindow = new window.google.maps.InfoWindow;
@@ -52,7 +64,7 @@ class Map extends React.Component {
                 map.setCenter(pos);
 
                 //Places nearby seach on current location
-                getNearbyPlaces(pos);
+                getNearbyPlaces(pos, choice);
             }, () => {
                 // Browser supports geolocation, but user has denied permission
                 handleLocationError(true, infoWindow);
@@ -81,19 +93,20 @@ class Map extends React.Component {
             currentInfoWindow = infoWindow;
 
             //get nearby searches on default location
-            getNearbyPlaces(pos);
+            getNearbyPlaces(pos, choice);
         }
 
         // Nearby search request
-        function getNearbyPlaces(position) {
+        function getNearbyPlaces(position, choice="subway"){
+            // debugger 
             let request = {
                 location: position,
                 radius: 2414, //in meters
                 // rankBy: window.google.maps.places.RankBy.DISTANCE,
-                keyword: 'subway',
+                keyword: choice,
                 type: 'restaurant'
             };
-
+            // debugger; 
             service = new window.google.maps.places.PlacesService(map);
             service.nearbySearch(request, nearbyCallback);
         }
