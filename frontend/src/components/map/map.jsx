@@ -1,7 +1,6 @@
 import React from 'react';
 import "./map.css"
-// import keys from '../../keys/api_keys'
-const keys = require("../../keys/api_keys");
+import keys from '../../keys/api_keys'
 
 
 class Map extends React.Component {
