@@ -8,6 +8,7 @@ import LoginFormContainer from "./session/login_form_container";
 import SignupFormContainer from "./session/signup_form_container";
 import ProfileContainer from "./profile/profile_container";
 import SplashContainer from "./splash/splash_container"
+import Map from './map/map'
 
 
 const App = () => (
