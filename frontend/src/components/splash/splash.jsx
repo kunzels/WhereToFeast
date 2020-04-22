@@ -16,7 +16,7 @@ class Splash extends React.Component {
                 {/* <NavBarContainer /> */}
                 <div className="splash-header"></div>
 
-                <div className="splash-confused">
+                <div className="splash-first">
 
                     <div className="confused-groups">  </div>
 
@@ -29,6 +29,19 @@ class Splash extends React.Component {
                     </div>
 
                     <div className="celebrate-groups">  </div>
+
+                </div>
+
+                <div className="splash-first">
+
+                    <div className="splash-second-first"></div>
+
+                    <div className="confused-text">
+                        <p>Utilizing Google Maps</p>
+
+                    </div>
+
+                    <div className="splash-second-end"> test 3 </div>
 
                 </div>
 

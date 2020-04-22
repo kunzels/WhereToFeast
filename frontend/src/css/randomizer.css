@@ -1,0 +1,25 @@
+.randomizer-container{
+    display: flex;
+    background-image: url("burger.jpg");
+    height: 865px;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+.randomizer-form{
+    width: 400px;
+    height: 400px;
+    height: fit-content;
+    margin: auto;
+    margin-top: 350px;
+    margin-left: 500px;
+    align-content: center;
+    vertical-align: center;
+    background-color: white;
+    border-radius: 3px;
+    padding: 16px 16px;
+    border: 1px solid black;
+    opacity: .75;
+}
