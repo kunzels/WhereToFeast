@@ -1,10 +1,11 @@
 import React from 'react';
+import Map from '../map/map'
 import "../../css/randomizer.css"
 
 class Randomizer extends React.Component{
     constructor(props){
         super(props);
-        this.state = {options: [], choice: "", finalChoice: ""}
+        this.state = {options: [], choice: "", finalChoice: "pizza"}
         this.handleSubmitChoice = this.handleSubmitChoice.bind(this);
         this.handleSubmitOptions = this.handleSubmitOptions.bind(this);
     } 
@@ -65,7 +66,9 @@ class Randomizer extends React.Component{
                      
                 </form>
 
-                {/* <Map choice={this.state.finalChoice} /> */}
+                {/* <div className="randomize-map">
+                </div> */}
+                    <Map choice={this.state.finalChoice} />
 
             </div>
         )
