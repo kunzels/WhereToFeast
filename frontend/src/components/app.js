@@ -10,12 +10,14 @@ import SignupFormContainer from "./session/signup_form_container";
 import ProfileContainer from "./profile/profile_container";
 import SplashContainer from "./splash/splash_container"
 import HomeContainer from "./main/home_container";
+import Randomizer from './randomizer/randomizer'
 
 const App = () => (
   <div>
     <NavBarContainer />
     <Switch>
       <AuthRoute exact path="/" component={SplashContainer} />
+      <AuthRoute exact path="/randomizer" component={Randomizer} />
       <AuthRoute exact path="/main" component={MainPage} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />

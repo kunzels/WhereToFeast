@@ -2,7 +2,9 @@
     width: 400px;
     height: fit-content;
     margin: auto;
+    margin-top: 150px;
     align-content: center;
+    vertical-align: center;
     background-color: white;
     border-radius: 3px;
     padding: 16px 16px;
@@ -19,8 +21,9 @@
 }
 
 .login-form{
+    display: flex;
     background-image: url("login_pic.jpg");
-    height: 900px;
+    height: 865px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -28,8 +31,9 @@
 }
 
 .signup-form-pic{
+    display: flex;
     background-image: url("signup_pic.jpg");
-    height: 900px;
+    height: 865px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
