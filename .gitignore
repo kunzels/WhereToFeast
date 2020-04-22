@@ -1,3 +1,4 @@
 /node_modules
 /config/keys_dev.js
+/frontend/src/keys/api_keys_dev.js
 .DS_Store

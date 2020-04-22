@@ -9,6 +9,7 @@ import LoginFormContainer from "./session/login_form_container";
 import SignupFormContainer from "./session/signup_form_container";
 import ProfileContainer from "./profile/profile_container";
 import SplashContainer from "./splash/splash_container"
+import Map from './map/map'
 import HomeContainer from "./main/home_container";
 import Randomizer from './randomizer/randomizer'
 
@@ -22,6 +23,7 @@ const App = () => (
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <Route exact path="/home" component={HomeContainer} />
+      <Route exact path="/maps" component={Map}/> 
       <ProtectedRoute exact path="/profile" component={ProfileContainer} />
     </Switch>
   </div>
