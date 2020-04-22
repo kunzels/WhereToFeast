@@ -45,7 +45,8 @@ io.on("connection", function (socket) {
   });
 
   socket.on("send message", function (msg) {
-    io.sockets.emit("message: ", {message: msg});
+    io.sockets.emit("new message", {message: msg});
+    console.log("Message sent!");
   });
 });
 io.listen(8000);

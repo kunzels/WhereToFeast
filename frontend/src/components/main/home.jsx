@@ -7,24 +7,37 @@ const socket = openSocket("http://localhost:8000");
 class Home extends React.Component{
     constructor(props){
         super(props);
+        this.state = {
+          messages: []
+        }
 
-        this.handleClick = this.handleClick.bind(this);
         this.sendSocketIO = this.sendSocketIO.bind(this);
     }
 
     sendSocketIO() {
-        socket.emit('example_message', 'My Choice');
-    }
+      socket.emit('send message', 'My Choice');
 
-    handleClick(){
-
+      const that = this;
+      socket.on("new message", function (data) {
+        debugger;
+        that.setState({messages: that.state.messages.concat([data.message])});
+      });
     }
 
     render(){
+      debugger;
+        const messages = this.state.messages.map((ele) => {
+          return (
+            <li>{ele}</li>
+          )
+        })
+
         return (
           <div>
-            
             <button onClick={this.sendSocketIO}>Send Socket.io</button>
+            <ul>
+              {messages}
+            </ul>
           </div>
         );
     }
