@@ -5,10 +5,16 @@ import "../../css/randomizer.css"
 class Randomizer extends React.Component{
     constructor(props){
         super(props);
-        this.state = {options: [], choice: "", finalChoice: "pizza"}
+
+        this.state = {options: [], choice: "", finalChoice: ""};
         this.handleSubmitChoice = this.handleSubmitChoice.bind(this);
         this.handleSubmitOptions = this.handleSubmitOptions.bind(this);
+        this.randomize = this.randomize.bind(this);
     } 
+
+    componentDidMount() {
+        this.props.getFinalChoice(this.state.finalChoice);
+    }
 
 
     update(field) {
@@ -27,10 +33,17 @@ class Randomizer extends React.Component{
         this.setState({choice: ""})
     }
 
-    handleSubmitOptions(e) {
-        e.preventDefault();
-        const {options} = this.state;
-        this.setState({ finalChoice: options[Math.floor(Math.random() * options.length)] });
+    randomize() {
+        const { options } = this.state;
+        this.setState({ finalChoice: options[Math.floor(Math.random() * options.length)] }, () => {
+            this.props.getFinalChoice(this.state.finalChoice);
+        });
+    }
+
+    handleSubmitOptions() {
+    
+        const path = '/maps';
+        this.props.history.push(path)
     }
 
     handleSubmitClear(e){
@@ -57,7 +70,9 @@ class Randomizer extends React.Component{
 
                     <ul>{optionLis}</ul>
 
-                    <button type="submit" onClick={this.handleSubmitOptions}> Randomize Choices</button>
+
+                    <button onClick={this.randomize}>Randomize</button>
+                    <button type="submit" onClick={this.handleSubmitOptions}> GO</button>
                     {/* <button type="submit" onClick={this.handleSubmitClear}> Clear Choices</button> */}
 
                     <br/> 
@@ -68,7 +83,7 @@ class Randomizer extends React.Component{
 
                 {/* <div className="randomize-map">
                 </div> */}
-                    <Map choice={this.state.finalChoice} />
+                    {/* {<Map choice={this.state.finalChoice} />} */}
 
             </div>
         )

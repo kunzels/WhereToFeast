@@ -7,8 +7,6 @@ class Map extends React.Component {
     constructor(props){
         super(props);
         this.initMap = this.initMap.bind(this);
-        
-        
     }
     
     componentDidMount() {
@@ -25,7 +23,6 @@ class Map extends React.Component {
     }
 
     initMap() {
-        
         let pos;
         let map;
         let bounds;
@@ -33,9 +30,8 @@ class Map extends React.Component {
         let currentInfoWindow;
         let service;
         let infoPane;
-        const that = this;
-        var choice = that.props.choice; 
-        // debugger 
+        var choice = this.props.finalChoice; 
+    
         // Initialize variables
         bounds = new window.google.maps.LatLngBounds();
         infoWindow = new window.google.maps.InfoWindow;
@@ -98,7 +94,7 @@ class Map extends React.Component {
 
         // Nearby search request
         function getNearbyPlaces(position, choice="subway"){
-            // debugger 
+            
             let request = {
                 location: position,
                 radius: 2414, //in meters
@@ -106,7 +102,7 @@ class Map extends React.Component {
                 keyword: choice,
                 type: 'restaurant'
             };
-            // debugger; 
+            
             service = new window.google.maps.places.PlacesService(map);
             service.nearbySearch(request, nearbyCallback);
         }
