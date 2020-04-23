@@ -18,7 +18,7 @@ const App = () => (
   <div>
     <NavBarContainer />
     <Switch>
-      <AuthRoute exact path="/" component={SplashContainer} />
+      <Route exact path="/" component={SplashContainer} />
       <Route exact path="/randomizer" component={RandomizerContainer} />
       <AuthRoute exact path="/main" component={MainPage} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
