@@ -11,12 +11,13 @@ class Randomizer extends React.Component{
         this.randomize = this.randomize.bind(this);
     } 
 
-    componentDidMount() {
-        this.props.getFinalChoice(this.state.finalChoice);
-    }
+    // componentDidMount() {
+    //     this.props.getFinalChoice(this.state.finalChoice);
+    // }
 
 
     update(field) {
+        
         return (e) =>
             this.setState({
                 [field]: e.currentTarget.value,
@@ -24,43 +25,53 @@ class Randomizer extends React.Component{
     }
 
     handleSubmitChoice(e) {
+        
         e.preventDefault();         
         const {options} = this.state
-        if(this.state.choice !== ""){
-            this.setState({options: options.concat([this.state.choice])});
-        }
+        options.push(this.state.choice);
+        this.props.getFinalChoice(options[options.length - 1]);
+        if  (this.state.choice !== "") {
+            this.setState({options: options});
+            }
+
         this.setState({choice: ""})
     }
 
     randomize() {
+        
         let { options } = this.state;
         if (options.length === 0) {
             options = ["ADD FOOD CHOICES"]
         }
+        
         this.setState({ finalChoice: options[Math.floor(Math.random() * options.length)] }, () => {
+          
             this.props.getFinalChoice(this.state.finalChoice);
         });
     }
 
     handleSubmitOptions(e) {
+        
         e.preventDefault();
         const path = '/maps';
         this.props.history.push(path)
     }
 
     handleSubmitClear(e){
+        
         e.preventDefault();
         this.setState({ options:[] })
     }
 
     render(){
+        
         const optionLis = this.state.options.map(option =>{
             return <li>{option}</li>
         })
 
         return(
             <div className="randomizer-container">
-                <form className="randomizer-form">
+                <div className="randomizer-form">
 
                     <label > Add Choices Here
                         <br/> 
@@ -74,14 +85,14 @@ class Randomizer extends React.Component{
 
 
                     <button onClick={this.randomize}>Randomize</button>
-                    <button type="submit" onClick={this.handleSubmitOptions}> GO</button>
+                    <button onClick={this.handleSubmitOptions}> GO</button>
                     {/* <button type="submit" onClick={this.handleSubmitClear}> Clear Choices</button> */}
 
                     <br/> 
 
                     <h3> Final Choice: {this.state.finalChoice} </h3>
                      
-                </form>
+                </div>
 
                 {/* <div className="randomize-map">
                 </div> */}

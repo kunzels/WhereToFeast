@@ -5,7 +5,7 @@ import { receiveFinalChoice } from '../../actions/food_actions';
 const msp = state => {
     
     return {
-        choice: state.finalChoice || "pizza"
+        choice: state.finalChoice 
     };
 };
 
