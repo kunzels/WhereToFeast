@@ -13,9 +13,9 @@ class Map extends React.Component {
         this.renderMap();
     }
 
-    componentDidUpdate(){
-        this.renderMap();
-    }
+    // componentDidUpdate(){
+    //     this.renderMap();
+    // }
 
     renderMap() {
         loadScript(`https://maps.googleapis.com/maps/api/js?key=${keys.mapApi}&libraries=places&callback=initMap`)
@@ -109,7 +109,7 @@ class Map extends React.Component {
 
         // deal with results of nearby search function
         function nearbyCallback(results, status) {
-            if (status == window.google.maps.places.PlacesServiceStatus.OK) {
+            if (status === window.google.maps.places.PlacesServiceStatus.OK) {
                 createMarkers(results);
             }
         }
@@ -143,7 +143,7 @@ class Map extends React.Component {
 
         // Builds an InfoWindow to display details above the marker
         function showDetails(placeResult, marker, status) {
-            if (status == window.google.maps.places.PlacesServiceStatus.OK) {
+            if (status === window.google.maps.places.PlacesServiceStatus.OK) {
                 let placeInfowindow = new window.google.maps.InfoWindow();
                 placeInfowindow.setContent('<div><strong>' + placeResult.name +
                     '</strong><br>' + 'Rating: ' + placeResult.rating + '</div>');

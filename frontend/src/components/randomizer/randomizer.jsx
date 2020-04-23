@@ -1,12 +1,11 @@
 import React from 'react';
-import Map from '../map/map'
 import "../../css/randomizer.css"
 
 class Randomizer extends React.Component{
     constructor(props){
         super(props);
 
-        this.state = {options: [], choice: "", finalChoice: ""};
+        this.state = {options: [], choice: "", finalChoice: "Food"};
         this.handleSubmitChoice = this.handleSubmitChoice.bind(this);
         this.handleSubmitOptions = this.handleSubmitOptions.bind(this);
         this.randomize = this.randomize.bind(this);
@@ -27,21 +26,24 @@ class Randomizer extends React.Component{
     handleSubmitChoice(e) {
         e.preventDefault();         
         const {options} = this.state
-        if(this.state.choice != ""){
+        if(this.state.choice !== ""){
             this.setState({options: options.concat([this.state.choice])});
         }
         this.setState({choice: ""})
     }
 
     randomize() {
-        const { options } = this.state;
+        let { options } = this.state;
+        if (options.length === 0) {
+            options = ["ADD FOOD CHOICES"]
+        }
         this.setState({ finalChoice: options[Math.floor(Math.random() * options.length)] }, () => {
             this.props.getFinalChoice(this.state.finalChoice);
         });
     }
 
-    handleSubmitOptions() {
-    
+    handleSubmitOptions(e) {
+        e.preventDefault();
         const path = '/maps';
         this.props.history.push(path)
     }
