@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./navbar.css";
+import "../../css/navbar.css"
+import "../../css/animation.css"
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -38,11 +39,19 @@ class NavBar extends React.Component {
 
   render() {
     return (
+      
       <div className="navbar">
-        <div></div>
+
+        {/* <div class="bg">
+              <img src="wtf_logo2.png" className="car"/>
+        </div> */}
+
         <div className="navbar-header"> 
-          <Link to="/" className="navbar-title">Where to Feast</Link>
+          <Link to="/" className="wtf-logo"></Link>
         </div>
+
+      <div ></div>
+
 
         <div className="navbar-links">
           {this.getLinks()}
@@ -54,3 +63,7 @@ class NavBar extends React.Component {
 }
 
 export default NavBar;
+
+
+// 
+

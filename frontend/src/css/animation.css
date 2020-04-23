@@ -1,0 +1,26 @@
+.navbar{
+    margin: 0;
+    padding: 0;
+}
+.bg{
+    position: relative;
+    background: #00fdff url(city.png);
+    height: 100vh;
+    background-size: cover;
+    background-position: 0 0;
+    background-repeat: repeat-x;
+    animation: animate 15s linear infinite;
+}
+.car{
+    position: absolute;
+    bottom: -60px;
+    left: 10px;
+}
+@keyframes animate{
+    from{
+         background-position: 0 0;
+    }
+    to{
+        background-position: 100% 0;
+    }
+}
