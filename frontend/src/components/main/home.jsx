@@ -19,13 +19,11 @@ class Home extends React.Component{
 
       const that = this;
       socket.on("new message", function (data) {
-        debugger;
         that.setState({messages: that.state.messages.concat([data.message])});
       });
     }
 
     render(){
-      debugger;
         const messages = this.state.messages.map((ele) => {
           return (
             <li>{ele}</li>

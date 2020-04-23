@@ -3,7 +3,7 @@ import Randomizer from './randomizer';
 import { receiveFinalChoice } from '../../actions/food_actions';
 
 const msp = state => {
-    debugger
+    
     return {
         choice: state.finalChoice || "pizza"
     };
