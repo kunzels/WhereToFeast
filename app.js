@@ -33,7 +33,28 @@ const connections = [];
 
 const http = require("http").Server(app);
 const io = require("socket.io")(http);
-io.on("connection", function (socket) {
+// io.on("connection", function (socket) {
+//   console.log("a user connected");
+
+//   connections.push(socket);
+//   console.log("Connected: %s sockets connected", connections.length);
+
+//   socket.on("disconnect", function () {
+//     connections.pop();
+//     console.log("User Disconnected");
+//   });
+// // CLIENT <--> SERVER <--> CLIENT
+//   socket.on("send message", function (data) {
+//     io.sockets.emit("receive message", data);
+//     console.log("Message sent!");
+//   });
+
+//   socket.on("typing", function(data){
+//     socket.broadcast.emit("typing", data);
+//   });
+// });
+
+io.of("/home").on("connection", (socket) => {
   console.log("a user connected");
 
   connections.push(socket);
@@ -44,8 +65,13 @@ io.on("connection", function (socket) {
     console.log("User Disconnected");
   });
 // CLIENT <--> SERVER <--> CLIENT
+  socket.on("joinRoom", (room) => {
+    socket.join(room)
+    console.log("Successfully joined " + room);
+  });
+
   socket.on("send message", function (data) {
-    io.sockets.emit("receive message", data);
+    io.of("/home").emit("receive message", data);
     console.log("Message sent!");
   });
 

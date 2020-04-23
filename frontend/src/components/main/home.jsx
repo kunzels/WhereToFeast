@@ -12,8 +12,8 @@ class Home extends React.Component{
           message: ''
         }
 
-        this.socket = openSocket("http://localhost:8000");
-
+        this.socket = openSocket("http://localhost:8000/home");
+        this.socket.emit("joinRoom", "home");
         this.sendSocketIO = this.sendSocketIO.bind(this);
         this.handleKeyPress = this.handleKeyPress.bind(this);
     }
