@@ -23,3 +23,11 @@
     border: 1px solid black;
     opacity: .75;
 }
+
+.no-show{
+    display: none;
+}
+
+.show{
+    display: block;
+}

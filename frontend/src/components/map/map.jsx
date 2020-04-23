@@ -7,8 +7,6 @@ class Map extends React.Component {
     constructor(props){
         super(props);
         this.initMap = this.initMap.bind(this);
-        
-        
     }
     
     componentDidMount() {
@@ -25,7 +23,7 @@ class Map extends React.Component {
     }
 
     initMap() {
-        
+        debugger
         let pos;
         let map;
         let bounds;
@@ -33,8 +31,7 @@ class Map extends React.Component {
         let currentInfoWindow;
         let service;
         let infoPane;
-        const that = this;
-        var choice = that.props.choice; 
+        var choice = this.props.finalChoice; 
         // debugger 
         // Initialize variables
         bounds = new window.google.maps.LatLngBounds();

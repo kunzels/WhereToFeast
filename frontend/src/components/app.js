@@ -11,19 +11,20 @@ import ProfileContainer from "./profile/profile_container";
 import SplashContainer from "./splash/splash_container"
 import Map from './map/map'
 import HomeContainer from "./main/home_container";
-import Randomizer from './randomizer/randomizer'
+import RandomizerContainer from './randomizer/randomizer_container'
+import MapContainer from "./map/map_container";
 
 const App = () => (
   <div>
     <NavBarContainer />
     <Switch>
       <AuthRoute exact path="/" component={SplashContainer} />
-      <AuthRoute exact path="/randomizer" component={Randomizer} />
+      <AuthRoute exact path="/randomizer" component={RandomizerContainer} />
       <AuthRoute exact path="/main" component={MainPage} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <Route exact path="/home" component={HomeContainer} />
-      <Route exact path="/maps" component={Map}/> 
+      <Route exact path="/maps" component={MapContainer}/> 
       <ProtectedRoute exact path="/profile" component={ProfileContainer} />
     </Switch>
   </div>

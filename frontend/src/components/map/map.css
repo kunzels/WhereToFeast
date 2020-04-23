@@ -1,5 +1,6 @@
 #map {
-    height: 400px;
+    /* height: 400px; */
+    height: 100vh;
     width: 100%;
     position: relative;
 }
@@ -7,7 +8,8 @@
 /* Styling for an info pane that slides out from the left. 
     * Hidden by default. */
 #panel {
-    height: 400px;
+    /* height: 400px; */
+    height: 100vh;
     width: null;
     background-color: white;
     position: fixed;
