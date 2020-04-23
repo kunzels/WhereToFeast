@@ -16,14 +16,14 @@ import Randomizer from './randomizer/randomizer'
 const App = () => (
   <div>
     <NavBarContainer />
+    <Route exact path="/randomizer" component={Randomizer} />
+    <Route exact path="/maps" component={Map}/> 
     <Switch>
       <AuthRoute exact path="/" component={SplashContainer} />
-      <AuthRoute exact path="/randomizer" component={Randomizer} />
       <AuthRoute exact path="/main" component={MainPage} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <Route exact path="/home" component={HomeContainer} />
-      <Route exact path="/maps" component={Map}/> 
       <ProtectedRoute exact path="/profile" component={ProfileContainer} />
     </Switch>
   </div>
