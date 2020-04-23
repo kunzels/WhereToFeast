@@ -9,13 +9,16 @@ class Home extends React.Component{
         super(props);
         this.state = {
           handle: '',
-          message: ''
+          message: '',
+          roomName: ''
         }
 
-        this.socket = openSocket("http://localhost:8000");
-
+        this.socket = openSocket("http://localhost:8000/home");
+        // this.socket.emit("joinRoom", "home");
         this.sendSocketIO = this.sendSocketIO.bind(this);
         this.handleKeyPress = this.handleKeyPress.bind(this);
+        this.createRoom = this.createRoom.bind(this);
+        this.joinRoom = this.joinRoom.bind(this);
     }
 
     sendSocketIO() {
@@ -51,6 +54,18 @@ class Home extends React.Component{
       });
     }
 
+    createRoom(){
+      const randString = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+      const roomCode = document.getElementById("room-code");
+      this.setState({roomName: randString});
+      roomCode.innerHTML = randString;
+      this.socket.emit("createRoom", randString);
+    }
+
+    joinRoom(){
+      this.socket.emit("joinRoom", this.state.roomName);
+    }
+
     render(){
 
         return (
@@ -69,6 +84,22 @@ class Home extends React.Component{
             <button id="send" onClick={() => this.sendSocketIO()}>
               Send!
             </button>
+            <div>
+              <p>Your Room Code: </p>
+              <p id="room-code"></p>
+            </div>
+            <br />
+            <button onClick={() => this.createRoom()}>
+              Create Room
+            </button>
+            <div>
+              <p>Join Room?</p>
+              <input type="text" className="roomName" onChange={this.handleChange("roomName")} />
+              <br/>
+              <button onClick={() => this.joinRoom()}>
+                Join Room
+              </button>
+            </div>
           </div>
         );
     }

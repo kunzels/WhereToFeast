@@ -30,22 +30,60 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 const connections = [];
+const rooms = [];
 
 const http = require("http").Server(app);
 const io = require("socket.io")(http);
-io.on("connection", function (socket) {
+// io.on("connection", function (socket) {
+//   console.log("a user connected");
+
+//   connections.push(socket);
+//   console.log("Connected: %s sockets connected", connections.length);
+
+//   socket.on("disconnect", function () {
+//     connections.pop();
+//     console.log("User Disconnected");
+//   });
+// // CLIENT <--> SERVER <--> CLIENT
+//   socket.on("send message", function (data) {
+//     io.sockets.emit("receive message", data);
+//     console.log("Message sent!");
+//   });
+
+//   socket.on("typing", function(data){
+//     socket.broadcast.emit("typing", data);
+//   });
+// });
+
+io.of("/home").on("connection", (socket) => {
   console.log("a user connected");
 
   connections.push(socket);
   console.log("Connected: %s sockets connected", connections.length);
+  console.log("There are currently %s rooms active", rooms.length);
 
-  socket.on("disconnect", function () {
+  socket.on("disconnect", function (data) {
     connections.pop();
     console.log("User Disconnected");
   });
 // CLIENT <--> SERVER <--> CLIENT
+  socket.on("createRoom", (room) => {
+    rooms.push(room)
+    socket.join(room)
+    console.log("Successfully created room: " + room);
+  })
+
+  socket.on("joinRoom", (room) => {
+    if (rooms.includes(room)){
+      socket.join(room);
+      console.log("Successfully joined " + room);
+    } else {
+      return socket.emit("err", "ERROR, no room under the name " + room);
+    }
+  });
+
   socket.on("send message", function (data) {
-    io.sockets.emit("receive message", data);
+    io.of("/home").in(data.roomName).emit("receive message", data);
     console.log("Message sent!");
   });
 
