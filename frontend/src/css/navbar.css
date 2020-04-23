@@ -22,13 +22,18 @@
 
 .navbar{
      display: flex;
-    background-color: #ffcc00;
+    background: #00fdff url(city.png);
     justify-content: space-between; 
      flex-direction: row; 
      color: white;
     font-size: large; 
     font-variant: small-caps;
-    font-family: chalkduster, fantasy;    
+    font-family: chalkduster, fantasy;   
+    animation: animate 15s linear infinite;
+     /* background-size: cover; */
+    /* background-position: 0 0; */
+    /* background-repeat: repeat-x; */
+    /* background-repeat: no-repeat; */
 }
 
 .wtf-logo{
@@ -68,8 +73,8 @@
   text-align: right;
   padding: 5px 15px;
   background-color: transparent;
-  border: 2px solid white;
-  color: #fff;
+  border: 2px solid black;
+  color: #black;
   text-decoration: none;
   border-radius: 4px;
   font-weight: 400;
@@ -81,7 +86,7 @@
 .session-links:hover{
     background-color: white;
     opacity: 75%;
-    color: black;
+    color: red;
 }
 
 .navbar-title{
