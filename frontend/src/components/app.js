@@ -18,8 +18,8 @@ const App = () => (
   <div>
     <NavBarContainer />
     <Switch>
-      <AuthRoute exact path="/" component={SplashContainer} />
-      <AuthRoute exact path="/randomizer" component={RandomizerContainer} />
+      <Route exact path="/" component={SplashContainer} />
+      <Route exact path="/randomizer" component={RandomizerContainer} />
       <AuthRoute exact path="/main" component={MainPage} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
