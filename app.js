@@ -12,7 +12,7 @@ const users = require("./routes/api/users");
 app.use(passport.initialize());
 require("./config/passport")(passport);
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.use("/api/users", users);
@@ -43,10 +43,14 @@ io.on("connection", function (socket) {
     connections.pop();
     console.log("User Disconnected");
   });
-
-  socket.on("send message", function (msg) {
-    io.sockets.emit("new message", {message: msg});
+// CLIENT <--> SERVER <--> CLIENT
+  socket.on("send message", function (data) {
+    io.sockets.emit("receive message", data);
     console.log("Message sent!");
+  });
+
+  socket.on("typing", function(data){
+    socket.broadcast.emit("typing", data);
   });
 });
 io.listen(8000);

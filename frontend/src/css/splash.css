@@ -9,7 +9,7 @@
 .splash-first{
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     width: auto;
     /* border-bottom: 1px solid black; */
 }
@@ -36,7 +36,7 @@
 
 .splash-second-first{
     background-image: url("map.png");
-    height: 350px;
+    height: 550px;
     width: 700px;
     background-position: center;
     background-repeat: no-repeat;
@@ -58,6 +58,28 @@
     background-size: cover;
 }
 
+.splash-second-end{
+    background-image: url("food-wheel.png");
+    height: 650px;
+    width: 650px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation-name: spin;
+    animation-duration: 5000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear; 
+}
+
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
+
 .celebrate-groups{
     background-image: url("celebrate.jpg");
     height: 350px;
@@ -71,3 +93,19 @@
     font-family: chalkduster, fantasy;
 }
 
+.randomize-button{
+  position: relative;
+  text-align: center;
+  margin-left: 50px;
+  padding: 5px 15px;
+  background-color: yellow;
+  border: 2px solid black;
+  color: black;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 600;
+  outline: none;
+  text-transform: uppercase;
+  bottom: 10px;
+  width: 300px;
+} 

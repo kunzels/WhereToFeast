@@ -16,7 +16,7 @@ import MapContainer from "./map/map_container";
 
 const App = () => (
   <div>
-    <NavBarContainer />
+    <NavBarContainer /> 
     <Switch>
       <AuthRoute exact path="/" component={SplashContainer} />
       <AuthRoute exact path="/randomizer" component={RandomizerContainer} />
