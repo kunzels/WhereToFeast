@@ -2,42 +2,73 @@ import React from "react";
 import "whatwg-fetch";
 import openSocket from "socket.io-client";
 import { withRouter } from "react-router-dom";
-const socket = openSocket("http://localhost:8000");
+// const socket = openSocket("http://localhost:8000");
 
 class Home extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-          messages: []
+          handle: '',
+          message: ''
         }
 
+        this.socket = openSocket("http://localhost:8000");
+
         this.sendSocketIO = this.sendSocketIO.bind(this);
+        this.handleKeyPress = this.handleKeyPress.bind(this);
     }
 
     sendSocketIO() {
-      socket.emit('send message', 'My Choice');
+      this.socket.emit('send message', this.state);
+    }
 
+    componentDidMount(){
       const that = this;
-      socket.on("new message", function (data) {
-        debugger;
-        that.setState({messages: that.state.messages.concat([data.message])});
+      this.socket.on("receive message", (data) => {
+        that.receiveSocketIO(data);
+      })
+    }
+
+    receiveSocketIO(data){
+      const output = document.getElementById("output");
+      const { handle, message } = data;
+      output.innerHTML += "<p><strong>" + handle + ":" + "</strong>" + message + "</p>";
+    }
+
+    handleChange(field){
+      return e => {
+        this.setState({[field]: e.target.value});
+      }
+    }
+
+    handleKeyPress(e){
+      this.socket.emit("typing", this.state.handle);
+
+      const feedback = document.getElementById("feedback");
+
+      this.socket.on("typing", function (data) {
+        feedback.innerHTML = "<p>" + data.handle + " is typing a message...</p>";
       });
     }
 
     render(){
-      debugger;
-        const messages = this.state.messages.map((ele) => {
-          return (
-            <li>{ele}</li>
-          )
-        })
 
         return (
-          <div>
-            <button onClick={this.sendSocketIO}>Send Socket.io</button>
-            <ul>
-              {messages}
-            </ul>
+          <div className="chat">
+            <div className="chat-window">
+              <div id="output">
+                <div id="feedback">
+                </div>
+              </div>
+            </div>
+            <input type="text" className="handle" onChange={this.handleChange('handle')} placeholder="Handle"/>
+            <br/>
+            <input type="text" className="message" onKeyPress={this.handleKeyPress}
+              onChange={this.handleChange('message')} placeholder="Message"/>
+            <br/>
+            <button id="send" onClick={() => this.sendSocketIO()}>
+              Send!
+            </button>
           </div>
         );
     }
