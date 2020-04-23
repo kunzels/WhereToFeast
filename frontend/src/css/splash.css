@@ -49,6 +49,8 @@
     font-style: italic;
     font-size: 40px;
 }
+
+
 .confused-groups{
     background-image: url("confused.jpg");
     height: 350px;
@@ -109,3 +111,4 @@
   bottom: 10px;
   width: 300px;
 } 
+
