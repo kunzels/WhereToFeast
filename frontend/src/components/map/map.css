@@ -31,8 +31,7 @@
     display: block;
 }
 
-.place,
-p {
+.place {
     font-family: 'open sans', arial, sans-serif;
     padding-left: 18px;
     padding-right: 18px;

@@ -11,6 +11,7 @@ import ProfileContainer from "./profile/profile_container";
 import SplashContainer from "./splash/splash_container"
 import RandomizerContainer from './randomizer/randomizer_container'
 import MapContainer from "./map/map_container";
+import Footer from './footer/footer'
 
 const App = () => (
   <div>
@@ -24,6 +25,7 @@ const App = () => (
       <Route exact path="/maps" component={MapContainer}/> 
       <ProtectedRoute exact path="/profile" component={ProfileContainer} />
     </Switch>
+    <Footer />
   </div>
 );
 
