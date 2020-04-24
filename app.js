@@ -9,31 +9,17 @@ const path = require('path');
 
 const users = require("./routes/api/users");
 
-app.use(passport.initialize());
-require("./config/passport")(passport);
-
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-
-app.use("/api/users", users);
-
-mongoose
-  .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log("Connected to MongoDB successfully"))
-  .catch((err) => console.log(err));
-
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('frontend/build'));
-  app.get('/', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
-  })
-}
-
 const connections = [];
 const rooms = [];
 
-const http = require("http").Server(app);
-const io = require("socket.io")(http);
+// const http = require("http").Server(app);
+// const io = require("socket.io")(http);
+const http = require("http");
+const socketIo = require("socket.io");
+const server = http.createServer(app);
+const io = socketIo(server);
+
+const port = process.env.PORT || 5000;
 // io.on("connection", function (socket) {
 //   console.log("a user connected");
 
@@ -55,7 +41,7 @@ const io = require("socket.io")(http);
 //   });
 // });
 
-io.of("/home").on("connection", (socket) => {
+io.on("connection", (socket) => {
   console.log("a user connected");
 
   connections.push(socket);
@@ -83,7 +69,7 @@ io.of("/home").on("connection", (socket) => {
   });
 
   socket.on("send message", function (data) {
-    io.of("/home").in(data.roomName).emit("receive message", data);
+    io.in(data.roomName).emit("receive message", data);
     console.log("Message sent!");
   });
 
@@ -91,7 +77,26 @@ io.of("/home").on("connection", (socket) => {
     socket.broadcast.emit("typing", data);
   });
 });
-io.listen(8000);
 
-const port = process.env.PORT || 5000;
-app.listen(port, () => console.log(`Server is running on port ${port}`));
+// app.listen(port, () => console.log(`Server is running on port ${port}`));
+server.listen(port);
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("frontend/build"));
+  app.get("/", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
+  });
+}
+
+mongoose
+  .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log("Connected to MongoDB successfully"))
+  .catch((err) => console.log(err));
+
+app.use(passport.initialize());
+require("./config/passport")(passport);
+
+app.use("/api/users", users);

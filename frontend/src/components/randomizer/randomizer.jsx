@@ -2,12 +2,16 @@ import React from 'react';
 import "whatwg-fetch";
 import openSocket from "socket.io-client";
 import "../../css/randomizer.css"
+const HOST = 
+    process.env.NODE_ENV === "production"
+        ? "https://where-to-feast.herokuapp.com"
+        : "http://localhost:5000";
 
 class Randomizer extends React.Component{
     constructor(props){
         super(props);
 
-        this.socket = openSocket("http://localhost:8000/home");
+        this.socket = openSocket(HOST);
         this.state = { options: [], choice: "", finalChoice: "Food", roomName: ''};
         this.handleSubmitChoice = this.handleSubmitChoice.bind(this);
         this.handleSubmitOptions = this.handleSubmitOptions.bind(this);
@@ -16,6 +20,12 @@ class Randomizer extends React.Component{
         this.createRoom = this.createRoom.bind(this);
         this.joinRoom = this.joinRoom.bind(this);
         this.handleKeyPress = this.handleKeyPress.bind(this);
+        // const randString = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+        // this.socket.emit("createRoom", randString);
+        // const that = this;
+        // this.socket.on("receive message", (data) => {
+        //     this.receiveSocketIO(data);
+        // });
     } 
 
     componentDidMount() {
@@ -31,7 +41,6 @@ class Randomizer extends React.Component{
 
     receiveSocketIO(data) {
         const { options, choice, finalChoice, roomName} = data;
-        //Needs to be handled!
         this.props.getFinalChoice(finalChoice);
         this.setState(data);
     }
@@ -76,7 +85,7 @@ class Randomizer extends React.Component{
         }
         this.setState({ finalChoice: options[Math.floor(Math.random() * options.length)] }, () => {
             this.sendSocketIO();
-            // this.props.getFinalChoice(this.state.finalChoice);
+            this.props.getFinalChoice(this.state.finalChoice);
         });
     }
 
@@ -92,15 +101,17 @@ class Randomizer extends React.Component{
     }
 
     handleKeyPress(e){
-        if(e.key === "Enter"){
+        if(e.key === "Enter" && this.state.choice !== ""){
             this.handleSubmitChoice(e);
+            this.props.getFinalChoice(this.state.choice);
+            this.sendSocketIO();
         }
     }
 
     render(){
         
         const optionLis = this.state.options.map(option =>{
-            return <li>{option}</li>
+            return <li key={Math.random()}>{option}</li>
         })
 
         return(
