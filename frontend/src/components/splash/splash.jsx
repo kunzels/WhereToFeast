@@ -17,7 +17,7 @@ class Splash extends React.Component {
     return (
       <div>
         {/* <NavBarContainer /> */}
-
+        
         <div className="outer-img-container">
           <div className="splash-header"></div>
           <div className="middle">
