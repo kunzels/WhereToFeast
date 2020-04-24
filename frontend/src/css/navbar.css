@@ -38,11 +38,12 @@
 
 .wtf-logo{
     display: flex;
-    background-image: url("wtf_logo.png");
+    background-image: url("where-to-feast-logo-2.png");
     height: 130px;
-    width: 230px;
+    /* width: 230px; */
+    width: 581px;
     z-index: 10;
-    margin-left: 140px;
+    margin-left: 40px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -74,19 +75,21 @@
   padding: 5px 15px;
   background-color: transparent;
   border: 2px solid black;
-  color: #black;
+  color: black;
   text-decoration: none;
   border-radius: 4px;
   font-weight: 400;
   outline: none;
   text-transform: uppercase;
   bottom: 10px;
+  transition: all .4s;
+  margin-right: 5px;
 } 
 
 .session-links:hover{
     background-color: white;
     opacity: .75;
-    color: red;
+    /* color: red; */
 }
 
 .navbar-title{

@@ -119,19 +119,21 @@ class Randomizer extends React.Component{
                 <div className="randomizer-form">
                     <div>
                         <label htmlFor="create-room-button">
-                            Create a Room!
+                            <div className="create">Create a Room!</div>
                             <br/>
-                            <p>Your Room Code: </p>
-                            <p id="room-code"></p>
-                            <button onClick={() => this.createRoom()}>Create a Room</button>
+                            <p className="create">Your Room Code: </p>
+                            <p className="create" id="room-code"></p>
+                            <button className="create-button" onClick={() => this.createRoom()}>Create a Room</button>
                         </label>
                     </div>
-                    <div>
+                    <div className="join-room-container">
                         <label>
-                            Join a Room! 
+                            <div className="create">Join a Room! </div>
                             <br/>
-                            <input type="text" onChange={this.update("roomName")} />
-                            <button onClick={() => this.joinRoom()}>Join Room</button>
+                            <div className="create">
+                                <input type="text" onChange={this.update("roomName")} />
+                                <button onClick={() => this.joinRoom()}>Join Room</button>
+                            </div>
                         </label>
                     </div>
                     <div>
@@ -140,11 +142,17 @@ class Randomizer extends React.Component{
                 </div>
                 <div className="randomizer-form">
 
-                    <label > Add Choices Here
+                    <label className="add-choices-center" > Add Choices Here
+                    <h3 className="final-choice-text"> Final Choice: </h3>
+                    <div className="final-choice-answer">{this.state.finalChoice} </div>
                         <br/> 
-                        <input type="text" value={this.state.choice} 
+                        <input className="add-choice-input" type="text" value={this.state.choice} 
                         onKeyPress={this.handleKeyPress} onChange={this.update("choice")} />
-                        <button onClick={this.handleSubmitChoice}> Add Choice </button>
+                        <button className="add-choice-button" onClick={this.handleSubmitChoice}> Add Choice </button>
+                    <div className="button-center">
+                        <button onClick={this.randomize}>Randomize</button>
+                        <button onClick={this.handleSubmitOptions}> GO</button>
+                    </div>
                     </label>
 
                     <br/> 
@@ -152,13 +160,10 @@ class Randomizer extends React.Component{
                     <ul>{optionLis}</ul>
 
 
-                    <button onClick={this.randomize}>Randomize</button>
-                    <button onClick={this.handleSubmitOptions}> GO</button>
                     {/* <button type="submit" onClick={this.handleSubmitClear}> Clear Choices</button> */}
 
                     <br/> 
 
-                    <h3> Final Choice: {this.state.finalChoice} </h3>
                      
                 </div>
 
