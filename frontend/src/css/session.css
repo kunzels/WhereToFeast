@@ -6,10 +6,13 @@
     align-content: center;
     vertical-align: center;
     background-color: white;
-    border-radius: 3px;
+    border-radius: 20px;
     padding: 16px 16px;
     border: 1px solid black;
-    opacity: .85;
+    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.4) inset;
+    -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.4) inset;
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.4) inset;
+    /* opacity: .85; */
 }
 
 .user-input{
@@ -18,6 +21,9 @@
     box-sizing: border-box;
     font-size: 1em;
     width: 90%;
+    font-size: 20px;
+    border-radius: 8px;
+    text-align: center;
 }
 
 .login-form{
@@ -40,16 +46,47 @@
 }
 
 .session-title {
-    color: #3E4040;
+    /* color: #3E4040;
     font-size: 30px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin-bottom: 8px;
     font-weight: 700;
-    text-transform: uppercase;
+    text-transform: uppercase; */
+    background: #ffcc00;
+	padding: 20px 30px 15px 30px;
+	margin: -30px -30px 30px -30px;
+	border-radius: 10px 10px 0 0;
+    color: #fff;
+	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
+	box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+    border: 1px solid #ffcc00;
+    color: black;
+    font-size: 20px;
 }
 
 .navbar-title:hover{
     color: orange;
+}
+
+.signup-button {
+    cursor: pointer;
+    margin-top: 10px;
+    background: #ffcc00;
+	padding: 8px 20px 8px 20px;
+	border-radius: 5px;
+	color: black;
+	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
+	box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+	border: 1px solid #ffcc00;
+    font-size: 15px;
+    transition: all .4s;
+}
+
+.signup-button:hover {
+    border-radius: 50px;
+    background-color: black;
+    border: 1px solid black;
+    color: white;
 }

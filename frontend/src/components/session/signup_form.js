@@ -58,7 +58,7 @@ class SignupForm extends React.Component {
     return (
       <div className="signup-form-pic"> 
       <div className="session-form-container">
-        <h4 className="session-title"> Sign Up</h4>
+        <h4 className="session-title"> Sign Up Here</h4>
         <form onSubmit={this.handleSubmit}>
           <div className="signup-form">
             <br />
@@ -94,7 +94,7 @@ class SignupForm extends React.Component {
               placeholder="Confirm Password"
             />
             <br />
-            <input type="submit" value="Submit" />
+            <input className="signup-button" type="submit" value="Sign Up" />
             {this.renderErrors()}
           </div>
         </form>
