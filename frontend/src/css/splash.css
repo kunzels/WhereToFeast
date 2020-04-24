@@ -9,8 +9,11 @@
 .splash-first{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     width: auto;
+    background-color: white;
+    color: rgb(89, 12, 12); 
+    
     /* border-bottom: 1px solid black; */
 }
 
@@ -52,8 +55,8 @@
 
 
 .confused-groups{
-    background-image: url("confused.jpg");
-    height: 350px;
+    background: url("confused2.png");
+    height: 450px;
     width: 700px;
     background-position: center;
     background-repeat: no-repeat;
