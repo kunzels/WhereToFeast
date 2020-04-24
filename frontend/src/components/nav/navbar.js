@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../../css/navbar.css"
 import "../../css/animation.css"
+import jingle from "./jingle.mp3"
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -47,7 +48,9 @@ class NavBar extends React.Component {
         </div> */}
 
         <div className="navbar-header"> 
-          <Link to="/" className="wtf-logo"></Link>
+          <Link to="/" className="wtf-logo" onClick={() => {document.getElementById('jingle').play() ;
+            document.getElementById('jingle').volume =0.2}}></Link>
+          <audio id="jingle" preload='none' src={jingle}></audio>
         </div>
 
       <div ></div>
