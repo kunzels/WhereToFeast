@@ -20,12 +20,12 @@ class Randomizer extends React.Component{
         this.createRoom = this.createRoom.bind(this);
         this.joinRoom = this.joinRoom.bind(this);
         this.handleKeyPress = this.handleKeyPress.bind(this);
-        const randString = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
-        this.socket.emit("createRoom", randString);
-        const that = this;
-        this.socket.on("receive message", (data) => {
-            this.receiveSocketIO(data);
-        });
+        // const randString = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+        // this.socket.emit("createRoom", randString);
+        // const that = this;
+        // this.socket.on("receive message", (data) => {
+        //     this.receiveSocketIO(data);
+        // });
     } 
 
     componentDidMount() {
