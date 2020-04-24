@@ -17,13 +17,7 @@ class Splash extends React.Component {
     return (
       <div>
         {/* <NavBarContainer /> */}
-
-        <div className="outer-img-container">
-          <div className="splash-header"></div>
-          <div className="middle">
-            <button type="submit" className="randomize-button" onClick={this.handleSubmit}>Randomizer</button>
-          </div>
-        </div>
+        <div className="splash-header"></div>
 
         <div className="splash-first">
           <div className="confused-groups"> </div>
@@ -41,6 +35,13 @@ class Splash extends React.Component {
             <p>and give you a selection of restaurants</p>
             <p>to choose from within your location</p>
             <p>Sign up today! Or try the randomizer below</p>
+            <button
+              type="submit"
+              className="randomize-button"
+              onClick={this.handleSubmit}
+            >
+              Randomizer
+            </button>
           </div>
 
           <div className="celebrate-groups"> </div>
