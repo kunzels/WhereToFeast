@@ -1,7 +1,11 @@
 .randomizer-container{
     display: flex;
+    align-items: center;
+    justify-content: space-evenly;
     background-image: url("burger.jpg");
-    height: 865px;
+    background-size: cover;
+    width: 100%;
+    height: 1000px;
     background-position: bottom;
     background-repeat: no-repeat;
     background-size: cover;
@@ -9,14 +13,9 @@
 }
 
 .randomizer-form{
-    width: 400px;
-    height: 400px;
-    height: fit-content;
-    margin: auto;
-    margin-top: 350px;
-    margin-left: 500px;
+    width: 300px;
+    height: 300px;
     align-content: center;
-    vertical-align: center;
     background-color: white;
     border-radius: 3px;
     padding: 16px 16px;
