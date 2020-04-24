@@ -55,7 +55,7 @@ const io = require("socket.io")(http);
 //   });
 // });
 
-io.of("/home").on("connection", (socket) => {
+io.on("connection", (socket) => {
   console.log("a user connected");
 
   connections.push(socket);
@@ -83,7 +83,7 @@ io.of("/home").on("connection", (socket) => {
   });
 
   socket.on("send message", function (data) {
-    io.of("/home").in(data.roomName).emit("receive message", data);
+    io.in(data.roomName).emit("receive message", data);
     console.log("Message sent!");
   });
 
@@ -91,7 +91,7 @@ io.of("/home").on("connection", (socket) => {
     socket.broadcast.emit("typing", data);
   });
 });
-io.listen(8000);
 
 const port = process.env.PORT || 5000;
-app.listen(port, () => console.log(`Server is running on port ${port}`));
+// app.listen(port, () => console.log(`Server is running on port ${port}`));
+io.listen(port);
