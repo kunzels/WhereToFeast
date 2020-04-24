@@ -20,7 +20,20 @@
     border-radius: 3px;
     padding: 16px 16px;
     border: 1px solid black;
-    opacity: .75;
+    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.4) inset;
+    -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.4) inset;
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.4) inset;
+    overflow-y: scroll;
+    /* overflow-y: hidden; */
+    /* opacity: .75; */
+}
+.randomizer-form::-webkit-scrollbar {
+    width: 0px;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+.randomizer-form::-webkit-scrollbar-thumb {
+    background: #FF0000;
 }
 
 .no-show{
@@ -29,4 +42,45 @@
 
 .show{
     display: block;
+}
+
+.join-room-container {
+    margin-top: 70px;
+}
+
+.create {
+    text-align: center;
+}
+
+.create-button {
+    margin-left: 90px;
+}
+
+.add-choices-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.add-choice-button {
+    margin-top: 10px;
+}
+
+.add-choice-input {
+    margin-top: 10px;
+}
+
+.button-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.final-choice-text {
+    text-align: center;
+}
+
+.final-choice-answer {
+    text-align: center;
+    font-size: 25px;
 }
