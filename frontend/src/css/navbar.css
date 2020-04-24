@@ -85,7 +85,7 @@
 
 .session-links:hover{
     background-color: white;
-    opacity: 75%;
+    opacity: .75;
     color: red;
 }
 
