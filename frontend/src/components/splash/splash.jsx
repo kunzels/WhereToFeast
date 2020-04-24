@@ -17,7 +17,13 @@ class Splash extends React.Component {
     return (
       <div>
         {/* <NavBarContainer /> */}
-        <div className="splash-header"></div>
+
+        <div className="outer-img-container">
+          <div className="splash-header"></div>
+          <div className="middle">
+            <button type="submit" className="randomize-button" onClick={this.handleSubmit}>Randomizer</button>
+          </div>
+        </div>
 
         <div className="splash-first">
           <div className="confused-text">
