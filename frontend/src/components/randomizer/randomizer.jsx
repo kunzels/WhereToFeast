@@ -4,8 +4,8 @@ import openSocket from "socket.io-client";
 import "../../css/randomizer.css"
 const HOST = 
     process.env.NODE_ENV === "production"
-        ? "https://where-to-feast.herokuapp.com/#/randomizer"
-        : "http://localhost:8000";
+        ? "https://where-to-feast.herokuapp.com"
+        : "http://localhost:5000";
 
 class Randomizer extends React.Component{
     constructor(props){
